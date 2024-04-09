@@ -8,6 +8,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_COMPILER C:\\mingw64\\bin\\clang++)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}\\bin)
 
+# Libraries
+set(RAND rand)
+
 add_subdirectory(config)
 add_subdirectory(external)
 add_subdirectory(src)

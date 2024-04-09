@@ -1,0 +1,1 @@
+add_library(${RAND} STATIC rand.cpp)
