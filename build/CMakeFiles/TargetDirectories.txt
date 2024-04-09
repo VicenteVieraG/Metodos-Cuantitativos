@@ -1,0 +1,13 @@
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/CMakeFiles/edit_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/CMakeFiles/rebuild_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/config/CMakeFiles/edit_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/config/CMakeFiles/rebuild_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/external/CMakeFiles/edit_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/external/CMakeFiles/rebuild_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/src/CMakeFiles/edit_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/src/CMakeFiles/rebuild_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/include/CMakeFiles/edit_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/include/CMakeFiles/rebuild_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/app/CMakeFiles/APLICACIONES_AVZ.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/app/CMakeFiles/edit_cache.dir
+C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build/app/CMakeFiles/rebuild_cache.dir
