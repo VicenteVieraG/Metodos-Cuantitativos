@@ -1,7 +1,0 @@
-[
-{
-  "directory": "C:/Users/plant/Documents/TEC/Semestre_8/Aplicaciones avanzadas/metodos_cuantitativos/build",
-  "command": "C:\\mingw64\\bin\\clang++ -g -std=c++20 -o app\\CMakeFiles\\APLICACIONES_AVZ.dir\\main.cpp.obj -c \"C:\\Users\\plant\\Documents\\TEC\\Semestre_8\\Aplicaciones avanzadas\\metodos_cuantitativos\\app\\main.cpp\"",
-  "file": "C:\\Users\\plant\\Documents\\TEC\\Semestre_8\\Aplicaciones avanzadas\\metodos_cuantitativos\\app\\main.cpp"
-}
-]
