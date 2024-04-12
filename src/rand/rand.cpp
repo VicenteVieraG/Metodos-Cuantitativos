@@ -9,8 +9,6 @@ namespace randy {
         @param digits Number of digits to take from the middle.
     */
     void middleSquare(unsigned long int randNum, unsigned long long seed, unsigned int digits){
-        seed *= seed;
-
         // Apply left and right shift to get the middle number
         unsigned long int shift = 0;
 
@@ -18,16 +16,16 @@ namespace randy {
         unsigned long int totalDigits = 0;
 
         do{
-            std::cout<<seed<<" || "<<randNum<<" || "<<sizeof(seed)<<std::endl;
+            seed *= seed;
 
-            // Get the total number of digits
             totalDigits = static_cast<unsigned long int>(std::log10(seed));
-
             shift = (totalDigits - digits) / 2;
-            seed = (seed / static_cast<unsigned int>(std::pow(10, shift))) %
-                    static_cast<unsigned int>(std::pow(10, digits));
+
+            seed = (seed / static_cast<unsigned long long>(std::pow(10, shift))) %
+                    static_cast<unsigned long long>(std::pow(10, digits));
 
             randNum--;
-        }while(randNum != 0);
+            std::cout<<randNum+1<<". "<<seed<<std::endl;
+        }while(randNum != 0 && seed != 0);
     }
 };
