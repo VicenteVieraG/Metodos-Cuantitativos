@@ -28,4 +28,21 @@ namespace randy {
             std::cout<<randNum+1<<". "<<seed<<std::endl;
         }while(randNum != 0 && seed != 0);
     }
+
+    /* 
+        @brief Lineal Congruential Generator (Generador lineal congruencial) algorithm implementation. The chosen parmeter values are taken from the book "Numerical Recipes".
+        @param X_0 Seed used to start generating random numbers.
+    */
+    void GLC(const unsigned long long seed, unsigned int randNum){
+        const unsigned int m = 0xFFFFFFFF; // 2^32 - 1
+        const unsigned int a = 1664525;
+        const unsigned int c = 1013904223;
+
+        // Calculation
+        unsigned long long X_i = seed;
+        do{
+            X_i = (a * X_i + c) & m;
+            std::cout<<randNum<<". "<<X_i<<std::endl; 
+        }while(--randNum != 0);
+    }
 };
