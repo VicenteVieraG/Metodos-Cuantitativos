@@ -10,6 +10,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}\\bin)
 
 # Libraries
 set(RAND rand)
+set(PLOTGLC plotGLC)
 
 add_subdirectory(config)
 add_subdirectory(external)
