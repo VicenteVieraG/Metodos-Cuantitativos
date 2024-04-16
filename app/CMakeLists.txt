@@ -4,3 +4,5 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     PRIVATE ${RAND}
     PRIVATE ${PLOTGLC}
 )
+
+target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE ./)

@@ -46,7 +46,7 @@ namespace randy {
         unsigned long long X_i = seed;
         do{
             X_i = (a * X_i + c) & m;
-            numbers[randNum - 1] = X_i;            
+            numbers[randNum - 1] = X_i % 3;            
         }while(--randNum != 0);
 
         return numbers;
