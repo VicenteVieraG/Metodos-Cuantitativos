@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-//#include <TH1L.h>
 
 #include <rand.h>
 
@@ -13,7 +12,5 @@ namespace hist_plot {
 
         for(auto num : X) std::cout<<num<<std::endl;
 
-        //TH1L* hist = new TH1L("HIST", "Histogram", 100, 0.0, 10.0);
-        
     }
 };
