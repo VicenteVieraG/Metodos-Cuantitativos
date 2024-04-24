@@ -1,1 +1,3 @@
-target_include_directories(${PLOTGLC} PUBLIC ./)
+target_include_directories(${PLOTGLC}
+    PUBLIC ./
+)
