@@ -3,6 +3,8 @@
 
 #include <rand.h>
 
+// namespace plt = matplotlibcpp;
+
 namespace hist_plot {
     void plotHist(){
         const unsigned int NUMBERS = 20;
@@ -11,6 +13,6 @@ namespace hist_plot {
         const std::vector<unsigned long long> X = randy::GLC(SEED, NUMBERS);
 
         for(auto num : X) std::cout<<num<<std::endl;
-
+        // plt::axis("");
     }
 };
