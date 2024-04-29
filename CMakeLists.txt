@@ -13,27 +13,10 @@ set(PLOTGLC plotGLC)
 
 find_package(Boost REQUIRED)
 
-if(${Boost_FOUND})
+if(Boost_FOUND)
     message(STATUS "BOOST VERSION: " ${Boost_VERSION})
-endif()
-
-set(Python_NumPy_INCLUDE_DIR C:\\Users\\plant\\scoop\\apps\\python\\3.12.2\\Lib\\site-packages\\numpy\\core\\include)
-find_package(Python COMPONENTS Interpreter Development NumPy REQUIRED)
-
-if(${Python_FOUND})
-    message(STATUS "PYHON VERSION: ${Python_VERSION}")
-
-    if(${Python_Interpreter_FOUND})
-        message(STATUS "PYTHON INTERPRETER FOUND")
-    endif()
-
-    if(${Python_Development_FOUND})
-        message(STATUS "PYTHON DEVELOPMENT FOUND")
-    endif()
-
-    if(${Python_NumPy_FOUND})
-        message(STATUS "NUMPY FOUND")
-    endif()
+    include_directories(${Boost_INCLUDE_DIRS})
+    link_directories(${Boost_LIBRARIES})
 endif()
 
 add_subdirectory(config)
