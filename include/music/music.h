@@ -3,6 +3,7 @@
 
 namespace MUS {
     int compose();
+    void generateNote();
 };
 
 #endif
