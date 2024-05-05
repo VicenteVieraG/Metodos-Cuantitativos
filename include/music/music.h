@@ -1,8 +1,10 @@
 #ifndef MUSIC_H
 #define MUSIC_H
 
+#include <string>
+
 namespace MUS {
-    unsigned int* generateNote(const unsigned int notesNumber);
+    std::string* generateNote(const unsigned int notesNumber);
     int compose();
 };
 

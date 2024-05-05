@@ -1,27 +1,71 @@
 #include <iostream>
+#include <string>
+#include <utility>
 #include <random>
 #include <chrono>
-#include <array>
+
 #include <SDL3/SDL.h>
 
 #include <music.h>
 
 namespace MUS {
-    unsigned int* generateNote(const unsigned int notesNumber){
-        // Create the Markov chain
-        // Notes:
-        // C C# D D# E F F# G G# A A# B
-        const short MARKOV_CHAIN[12][12] = {
-            {}
-        };
+    // Create the Markov chain
+    const std::pair<unsigned int, unsigned int> MARKOV_CHAIN[12][12] = {
+        // C        C#        D        D#        E         F         F#         G        G#         A        A#         B
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q0
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q1
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q2
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q3
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q4
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q5
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q6
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q7
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q8
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q9
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q10
+        {{0, 5}, {6, 20}, {21, 30}, {31, 33}, {34, 44}, {45, 46}, {47, 67}, {68, 78}, {79, 80}, {81, 90}, {91, 92}, {93, 100}}, // q11
+    };
+
+    std::string* generateNote(const unsigned int notesNumber){
         // Set the generator and distribution
         const unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count();
         std::mt19937 generator(seed);
-        std::uniform_int_distribution<int> distribution(1, 12);
+        std::uniform_int_distribution<int> distribution(0, 100);
 
-        // Fill the array with notes
-        unsigned int* notes = new unsigned int[notesNumber];
-        for(int i = 0;i < notesNumber;i++) notes[i] = distribution(generator);
+        // Fill the roulette with notes
+        unsigned int* roulette = new unsigned int[notesNumber];
+        for(int i = 0;i < notesNumber;i++) roulette[i] = distribution(generator);
+
+        // Fill the notes array
+        const unsigned int NOTES_NUMBER = 12;
+        unsigned int state = 0;
+        std::string* notes = new std::string[notesNumber];
+
+        for(unsigned int i = 0;i < notesNumber;i++){
+            // Traverse Markov Chain
+            for(unsigned int j = 0;j < NOTES_NUMBER;j++){
+                if(MARKOV_CHAIN[state][j].first <= roulette[i] && MARKOV_CHAIN[state][j].second >= roulette[i]){
+                    // Set new state and add the corresponding key
+                    state = j;
+                    switch(state){
+                        case 0: notes[i] = "C";break;
+                        case 1: notes[i] = "C#";break;
+                        case 2: notes[i] = "D";break;
+                        case 3: notes[i] = "D#";break;
+                        case 4: notes[i] = "E";break;
+                        case 5: notes[i] = "F";break;
+                        case 6: notes[i] = "F#";break;
+                        case 7: notes[i] = "G";break;
+                        case 8: notes[i] = "G#";break;
+                        case 9: notes[i] = "A";break;
+                        case 10: notes[i] = "A#";break;
+                        case 11: notes[i] = "B";break;
+                    }
+                    break;
+                }
+            }
+        }
+        delete[] roulette;
 
         return notes;
     }
@@ -32,52 +76,10 @@ namespace MUS {
             return 1;
         }
 
-        // Generate the notes
         const unsigned int NOTES_NUMBER = 100;
-        const unsigned int* NOTES = generateNote(NOTES_NUMBER);
+        const std::string* NOTES = generateNote(NOTES_NUMBER);
+        for(unsigned int i = 0;i < NOTES_NUMBER;i++) std::cout<<NOTES[i]<<std::endl;
 
-        for(int i = 0;i < NOTES_NUMBER;i++){
-            switch(NOTES[i]){
-                case 1:
-                    std::cout<<"C"<<std::endl;
-                    break;
-                case 2:
-                    std::cout<<"C#"<<std::endl;
-                    break;
-                case 3:
-                    std::cout<<"D"<<std::endl;
-                    break;
-                case 4:
-                    std::cout<<"D#"<<std::endl;
-                    break;
-                case 5:
-                    std::cout<<"E"<<std::endl;
-                    break;
-                case 6:
-                    std::cout<<"F"<<std::endl;
-                    break;
-                case 7:
-                    std::cout<<"F#"<<std::endl;
-                    break;
-                case 8:
-                    std::cout<<"G"<<std::endl;
-                    break;
-                case 9:
-                    std::cout<<"G#"<<std::endl;
-                    break;
-                case 10:
-                    std::cout<<"A"<<std::endl;
-                    break;
-                case 11:
-                    std::cout<<"A#"<<std::endl;
-                    break;
-                case 12:
-                    std::cout<<"B"<<std::endl;
-                    break;
-            }
-        }
-
-        std::cout<<"HELLO SDL3"<<std::endl;
         SDL_Quit();
 
         return 0;
