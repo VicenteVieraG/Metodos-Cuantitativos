@@ -75,6 +75,33 @@ namespace MUS {
             std::cerr<<SDL_GetError()<<std::endl;
             return 1;
         }
+        // Configure audio
+        SDL_AudioSpec specInput;
+        SDL_AudioSpec specOutput;
+
+        SDL_zero(specInput);
+        SDL_zero(specOutput);
+    
+        const int FREQ = 48000;
+        specInput.channels = 1;
+        specInput.format = SDL_AUDIO_F32;
+        specInput.freq = FREQ;
+        
+        specOutput.channels = 1;
+        specOutput.format = SDL_AUDIO_F32;
+        specOutput.freq = FREQ;
+        
+        SDL_AudioDeviceID device = SDL_OpenAudioDevice(SDL_AUDIO_DEVICE_DEFAULT_OUTPUT, &specOutput);
+        if(device == 0){
+            std::cerr<<"SDL_AudioDeviceID not found"<<std::endl;
+            return 1;
+        }
+
+        SDL_AudioStream* stream = SDL_CreateAudioStream(&specInput, &specOutput);
+        if(stream == NULL){
+            std::cerr<<"SDL_AudioStream not initialized"<<std::endl;
+            return 1;
+        }
 
         const unsigned int NOTES_NUMBER = 100;
         const std::string* NOTES = generateNote(NOTES_NUMBER);
