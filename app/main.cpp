@@ -3,12 +3,13 @@
 
 #include <plotGLC.h>
 #include <rand.h>
-#include <music.h>
+// #include <music.h>
 
 int main(int argc, char** argv){
-    MUS::compose();
+    std::cout<<"ADIOS CRAYOLA"<<std::endl;
+    // MUS::compose();
 
-    std::system("pause");
+    // std::system("pause");
 
     return 0;
 }
